@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="text-box.css" type="text/css">
+</head>
+
+<body>
+    <div id="carousel">
+        <div id="textbox">
+            <p>Thai elephant trainers still believe in excessive force like tight cuffs on all four legs to discipline young calves and the use of a spike hammer for punishment.</p>
+        </div>
+        <img src="img/1.jpg" id="pic-1" / data-content="Thai elephant trainers still believe in excessive force like tight cuffs on all four legs to discipline young calves and the use of a spike hammer for punishment.">
+        <img src="img/2.jpg" id="pic-2" / data-content="Elephants are ordered to stand on two front legs or on a small box to entertain tourists and locals. These elephants will likely have bone disorders when older. When not performing, elephants are confined in short chains for the rest of the day. This results in long term neurotic behaviour, observable when an elephant sways its head side to side all the time like it's dancing.">
+        <img src="img/3.jpg" id="pic-3" / data-content="Baby elephants are forced to perform on the street for money. Most of them are separated from their mothers and fed with beer and amphetamines for the entertainment of tourists. More and more baby elephants are now found roaming the city streets. Some of these could have been smuggled in from the wild. If so, it means that as many as four adult females (foster mothers) may have been killed in the process.">
+        <img src="img/4.jpg" id="pic-4" / data-content="Most elephant resorts pay little or no attention to animal welfare. Elephants have to work long hours with not enough to eat or time to rest. House vets are virtually unheard of. Medical attention is given only when the animal is already sick.">
+    </div>
+    <!--<a href="#" id="prev"><img src="img/previous.png " width="20px"></a>
+    <a href="#" id="next"><img src="img/next.jpg " width="20px"></a>-->
+
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.waterwheelCarousel.js"></script>
+<!--<script type="text/javascript" src="js/jquery.waterwheelCarousel.min.js"></script> -->
+<script type="text/javascript">
+
+//only run when (DOM) is ready for JavaScript //
+
+$(document).ready(function() {
+    var carousel = $("#carousel").waterwheelCarousel({
+        flankingItems: 3,
+    });
+
+
+    $($('img').filter(function() {
+        return $(this).attr('class') != 'carousel-center';
+    })).bind("click", function() {
+        // carousel.prev();
+        $('#textbox ').html($('img').filter(function() {
+        return $(this).css('z-index') == '5';
+    }).data('content'));
+        return false;
+    });
+
+
+    // $("#prev").bind("click", function() {
+    //     carousel.prev();
+    //     $('#textbox ').append('asdf');
+    //     return false;
+    // });
+
+
+    // $("#next").bind("click", function() {
+    //     carousel.next();
+    // $('#textbox p').html($('img').filter(function() {
+    //     return $(this).css('z-index') == '5';
+    // }).data('content'));
+    //     return false;
+    // });
+});
+</script>
+
+</html>
